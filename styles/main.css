@@ -16,3 +16,8 @@ body {
 a:hover {
     color: var(--primary-highlight-color);
 }
+
+.dropDowns {
+    display: flex;
+    justify-content: space-evenly;
+}
