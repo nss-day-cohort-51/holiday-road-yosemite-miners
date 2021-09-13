@@ -7,6 +7,8 @@ Syntax: color: var(--primary-highlight-color); */
     --primary-background-color: #CCDDE2;
     --primary-highlight-color: #F19953;
     --third-main-color: #40A7C9;
+    --primary-border-radius: 5px;
+    --secondary-border-radius: 50px;
 }
 
 body {
