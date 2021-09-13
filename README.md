@@ -59,7 +59,7 @@ You will need a complete `README.md` for this project. Be sure to include a scre
 ![Yosemite Miners Wireframe](/images/wireframe-holidya-road-yosemite.png)
 
 #### ERD
-![Yosemite Miners ERD] (/images/ERD.png)
+![Yosemite Miners ERD](/images/ERD.png)
 
 ## Personas
 | [Anna](./personas/persona-anna.png) | [Betsy](./personas/persona-betsy.png) | [Brittany](./personas/persona-brittany.png) | [Caroline](./personas/persona-caroline.png) | [Charles](./personas/persona-charles.png) | [Jake](./personas/persona-jake.png) | [Peter](./personas/persona-peter.png)
