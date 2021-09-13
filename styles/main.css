@@ -1,3 +1,6 @@
+/* User the variables for colors to make sure we use only these colors
+Syntax: color: var(--primary-highlight-color); */
+
 :root {
     --primary-main-color: #0B2027;
     --secondary-main-color: #24687F;
