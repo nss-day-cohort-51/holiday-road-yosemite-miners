@@ -55,6 +55,10 @@ After each teammate clones the repository, each member must perform the followin
 You will need a complete `README.md` for this project. Be sure to include a screenshot of your ERD and Wireframe and listing of team members. 
 * [README Materials](https://github.com/nss-day-cohort-51/client-side-mastery/blob/main/book-2-giffygram/chapters/Project-Readme.md)
 
+#### Wireframe
+![Yosemite Miners Wireframe](/images/wireframe-holidya-road-yosemite.png)
+
+
 ## Personas
 | [Anna](./personas/persona-anna.png) | [Betsy](./personas/persona-betsy.png) | [Brittany](./personas/persona-brittany.png) | [Caroline](./personas/persona-caroline.png) | [Charles](./personas/persona-charles.png) | [Jake](./personas/persona-jake.png) | [Peter](./personas/persona-peter.png)
 | -- | -- | -- | -- | -- | -- | -- |
