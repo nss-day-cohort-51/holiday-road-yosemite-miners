@@ -44,7 +44,7 @@ elementTarget.addEventListener("change", event => {
      getBizarres().then((allBizarres => BizarreList(allBizarres)))
  }
 
- //Bizarre event listener
+ //Bizarre event listener ti populate trip preview
 
  elementTarget.addEventListener ("change", event => {
      if (event.target.id === "bizarreDrop"){
@@ -72,14 +72,6 @@ elementTarget.addEventListener("change", event => {
 const showEateryList = () => {
     getEateries().then((allEateries => EateryList(allEateries)))
 }
-
-// const showAttractions = () => {
-//     const attractionElement = document.querySelector(".attraction")
-//     getBizarres().then((allBizarres) => {
-//         attractionElement.innerHTML = Attractions(allBizarres)
-//     })
-    
-// }
 
 
 //Parks drop down
