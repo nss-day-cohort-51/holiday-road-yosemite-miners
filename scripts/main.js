@@ -3,6 +3,7 @@ import { getBizarres, getAttraction} from "./attractions/AttractionDataManager.j
 import { getEateries } from "./eateries/EateryDataManager.js";
 import { park } from "./parks/park.js";
 import { getParks } from "./parks/ParkDataManager.js";
+import { getPark } from "./parks/ParkDataManager.js";
 import { Attraction } from "./attractions/Attraction.js";
 
 //State Drop Down
@@ -87,21 +88,32 @@ const showEateryList = () => {
 
 const ParkList = (allParks) =>{
     const parkFinder = document.querySelector(".parkDrop")
-    let postHTML = `<select><option value="0">Choose Park</option>`
+    let postHTML = `<select id="parkDrop"><option value="0">Choose Park</option>`
     for (const parkObj of allParks) {
-        postHTML += `<option value="${parkObj.id}">${parkObj.fullName}</option>`
+        postHTML += `<option value="${parkObj.parkCode}">${parkObj.fullName}</option>`
     }
     postHTML += "</select>"
     parkFinder.innerHTML = postHTML;
 }
 
+//Parks event listener
 
+elementTarget.addEventListener ("change", event => {
+    if (event.target.id === "parkDrop"){
+        const parkId = event.target.value
+        getPark(parkId)
+        .then(response => {
+           const parkElement = document.querySelector(".park-name__block")
+           parkElement.innerHTML = park(response.data[0])
+       })
+    }
 
+})
 
-const showPark = () => {
-    const parkElement = document.querySelector(".detail-window");
-    parkElement.innerHTML = park();
-}
+// const showPark = () => {
+//     const parkElement = document.querySelector(".detail-window");
+//     parkElement.innerHTML = park();
+// }
 
 
 
