@@ -6,7 +6,7 @@ export const WeatherList = (allWeather) => {
     // Loop over the array of weather DataTransferItemList, invoke the weatherForecastItem component which returns HTML representation
     for (const weatherObject of allWeather) {
 
-        postHTML += weatherForecastItem(allWeather)
+        postHTML += weatherForecastItem(weatherObject)
     }
     return postHTML;
 }
