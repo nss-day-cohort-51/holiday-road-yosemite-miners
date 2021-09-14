@@ -1,6 +1,7 @@
 import { getStates } from "./parks/ParkDataManager.js"
 import { getBizarres } from "./attractions/AttractionDataManager.js";
 import { getEateries } from "./eateries/EateryDataManager.js";
+import { park } from "./parks/park.js";
 
 //State Drop Down
 const StateList = (allStates) => {
@@ -49,10 +50,20 @@ const showEateryList = () => {
 
 
 
+
+const showPark = () => {
+    const parkElement = document.querySelector(".detail-window");
+    parkElement.innerHTML = park();
+}
+
+
+
 const startHolidayRoad = () =>{
 showStateList()
 showBizarreList()
 showEateryList()
+showPark()
+park();
 }
 
 startHolidayRoad()
