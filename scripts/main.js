@@ -1,7 +1,8 @@
 import { getStates } from "./parks/ParkDataManager.js"
-import { getBizarres } from "./attractions/AttractionDataManager.js";
+import { getBizarres, getAttraction} from "./attractions/AttractionDataManager.js";
 import { getEateries } from "./eateries/EateryDataManager.js";
 import { getParks } from "./parks/ParkDataManager.js";
+import { Attraction } from "./attractions/Attraction.js";
 
 //State Drop Down
 const StateList = (allStates) => {
@@ -18,10 +19,10 @@ const showStateList = () => {
     getStates().then((allStates) => StateList(allStates))
 }
 
-//State Selection event listener WORK IN PROGRESS
-const stateTarget = document.querySelector("main")
+//State Selection event listener
+const elementTarget = document.querySelector("main")
 
-stateTarget.addEventListener("change", event => {
+elementTarget.addEventListener("change", event => {
     if (event.target.id === "stateDrop"){
         getParks(event.target.value)
         .then(response => ParkList(response.data) )
@@ -31,7 +32,7 @@ stateTarget.addEventListener("change", event => {
 //Bizarre Drop down
  const BizarreList = (allBizarres) => {
      const bizarreFinder = document.querySelector(".bizarreDrop")
-     let postHTML = `<select><option value="0">Choose Attraction</option>`;
+     let postHTML = `<select id="bizarreDrop"><option value="0">Choose Attraction</option>`;
      for (const bizarreObject of allBizarres) {
          postHTML += `<option value="${bizarreObject.id}">${bizarreObject.name}</option>`
      }
@@ -42,6 +43,20 @@ stateTarget.addEventListener("change", event => {
  const showBizarreList = () => {
      getBizarres().then((allBizarres => BizarreList(allBizarres)))
  }
+
+ //Bizarre event listener
+
+ elementTarget.addEventListener ("change", event => {
+     if (event.target.id === "bizarreDrop"){
+         const attractionId = parseInt(event.target.value)
+         getAttraction(attractionId)
+         .then(response => {
+            const attractionElement = document.querySelector(".attraction")
+            attractionElement.innerHTML = Attraction(response)
+        })
+     }
+
+ })
 
  //Eatery Drop Down
  const EateryList = (allEateries) => {
@@ -57,6 +72,14 @@ stateTarget.addEventListener("change", event => {
 const showEateryList = () => {
     getEateries().then((allEateries => EateryList(allEateries)))
 }
+
+// const showAttractions = () => {
+//     const attractionElement = document.querySelector(".attraction")
+//     getBizarres().then((allBizarres) => {
+//         attractionElement.innerHTML = Attractions(allBizarres)
+//     })
+    
+// }
 
 
 //Parks drop down
@@ -77,6 +100,7 @@ const startHolidayRoad = () =>{
 showStateList()
 showBizarreList()
 showEateryList()
+
 }
 
 startHolidayRoad()
