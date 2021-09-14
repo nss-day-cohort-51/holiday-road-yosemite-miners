@@ -1,8 +1,8 @@
 import { getStates } from "./parks/ParkDataManager.js"
-import { getBizarres } from "./attractions/AttractionDataManager.js";
+import { getBizarres, getAttraction} from "./attractions/AttractionDataManager.js";
 import { getEateries } from "./eateries/EateryDataManager.js";
 import { getParks } from "./parks/ParkDataManager.js";
-import { AttractionList } from "./attractions/AttractionList.js";
+import { Attraction } from "./attractions/Attraction.js";
 
 //State Drop Down
 const StateList = (allStates) => {
@@ -34,7 +34,7 @@ elementTarget.addEventListener("change", event => {
      const bizarreFinder = document.querySelector(".bizarreDrop")
      let postHTML = `<select id="bizarreDrop"><option value="0">Choose Attraction</option>`;
      for (const bizarreObject of allBizarres) {
-         postHTML += `<option value="${bizarreObject.state}">${bizarreObject.name}</option>`
+         postHTML += `<option value="${bizarreObject.id}">${bizarreObject.name}</option>`
      }
      postHTML += `</select>`
      bizarreFinder.innerHTML = postHTML;
@@ -48,9 +48,14 @@ elementTarget.addEventListener("change", event => {
 
  elementTarget.addEventListener ("change", event => {
      if (event.target.id === "bizarreDrop"){
-         getBizarres(event.target.value)
-         .then(response => showAttractions(response))
+         const attractionId = parseInt(event.target.value)
+         getAttraction(attractionId)
+         .then(response => {
+            const attractionElement = document.querySelector(".attraction")
+            attractionElement.innerHTML = Attraction(response)
+        })
      }
+
  })
 
  //Eatery Drop Down
@@ -68,13 +73,13 @@ const showEateryList = () => {
     getEateries().then((allEateries => EateryList(allEateries)))
 }
 
-const showAttractions = () => {
-    const attractionElement = document.querySelector(".attraction")
-    getBizarres().then((allBizarres) => {
-        attractionElement.innerHTML = AttractionList(allBizarres)
-    })
+// const showAttractions = () => {
+//     const attractionElement = document.querySelector(".attraction")
+//     getBizarres().then((allBizarres) => {
+//         attractionElement.innerHTML = Attractions(allBizarres)
+//     })
     
-}
+// }
 
 
 //Parks drop down
