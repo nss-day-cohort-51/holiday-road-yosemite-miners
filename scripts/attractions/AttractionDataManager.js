@@ -5,3 +5,11 @@ export const getBizarres = () => {
       return parsedResponse;
   })
 };
+
+export const getAttraction = (input) => {
+  return fetch(`http://holidayroad.nss.team/bizarreries/${input}`)
+  .then(response => response.json())
+  .then(parsedResponse => {
+      return parsedResponse;
+  })
+}
