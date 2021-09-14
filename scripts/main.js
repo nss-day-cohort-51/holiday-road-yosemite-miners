@@ -5,6 +5,8 @@ import { park } from "./parks/park.js";
 import { getParks } from "./parks/ParkDataManager.js";
 import { getPark } from "./parks/ParkDataManager.js";
 import { Attraction } from "./attractions/Attraction.js";
+import { getWeather } from "./weather/WeatherDataManager.js";
+import { WeatherList } from "./weather/WeatherList.js";
 
 //State Drop Down
 const StateList = (allStates) => {
@@ -46,7 +48,7 @@ elementTarget.addEventListener("change", event => {
      getBizarres().then((allBizarres => BizarreList(allBizarres)))
  }
 
- //Bizarre event listener
+ //Bizarre event listener ti populate trip preview
 
  elementTarget.addEventListener ("change", event => {
      if (event.target.id === "bizarreDrop"){
@@ -74,14 +76,6 @@ elementTarget.addEventListener("change", event => {
 const showEateryList = () => {
     getEateries().then((allEateries => EateryList(allEateries)))
 }
-
-// const showAttractions = () => {
-//     const attractionElement = document.querySelector(".attraction")
-//     getBizarres().then((allBizarres) => {
-//         attractionElement.innerHTML = Attractions(allBizarres)
-//     })
-    
-// }
 
 
 //Parks drop down
@@ -116,11 +110,22 @@ elementTarget.addEventListener ("change", event => {
 // }
 
 
+// Weather is triggered by the park selection event listener
+// Show 5-day weather list
+const showWeatherList = (postalCode) => {
+    //Get a reference to the location on the DOM where the list will display
+    const postElement = document.querySelector(".fiveday-forecast");
+    getWeather(postalCode).then((allWeatherItems) => {
+      postElement.innerHTML = WeatherList(allWeatherItems.list);
+    });
+  };
 
 const startHolidayRoad = () =>{
 showStateList()
 showBizarreList()
 showEateryList()
+showWeatherList(37214);
+
 
 }
 
