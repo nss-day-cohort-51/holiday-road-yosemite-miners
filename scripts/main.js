@@ -3,6 +3,8 @@ import { getBizarres, getAttraction} from "./attractions/AttractionDataManager.j
 import { getEateries } from "./eateries/EateryDataManager.js";
 import { getParks } from "./parks/ParkDataManager.js";
 import { Attraction } from "./attractions/Attraction.js";
+import { getWeather } from "./weather/WeatherDataManager.js";
+import { WeatherList } from "./weather/WeatherList.js";
 
 //State Drop Down
 const StateList = (allStates) => {
@@ -95,11 +97,22 @@ const ParkList = (allParks) =>{
 }
 
 
+// Weather is triggered by the park selection event listener
+// Show 5-day weather list
+const showWeatherList = (postalCode) => {
+    //Get a reference to the location on the DOM where the list will display
+    const postElement = document.querySelector(".fiveday-forecast");
+    getWeather(postalCode).then((allWeatherItems) => {
+      postElement.innerHTML = WeatherList(allWeatherItems.list);
+    });
+  };
 
 const startHolidayRoad = () =>{
 showStateList()
 showBizarreList()
 showEateryList()
+showWeatherList(37214);
+
 
 }
 
