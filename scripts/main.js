@@ -121,35 +121,36 @@ const showWeatherList = (postalCode) => {
 };
 
 //Modal For Details Button
-const openModalButtons = document.querySelectorAll("[data-modal-target]")
-const closeModalButtons = document.querySelectorAll("[data-close-button]")
-const overlay = document.getElementById("overlay")
+const openModalButtons = document.querySelector("main")
+// const closeModalButtons = document.querySelector("main")
+// const overlay = document.getElementById("overlay")
 
-openModalButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        const modal = document.querySelector(button.dataset.modalTarget)
-        openModal(modal)
+openModalButtons.addEventListener("click", event => {
+        if(event.target.id === "openButton"){
+        const modal = document.querySelector(".modal")
+        modal.showModal()
+        }
     })
-})
 
-closeModalButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        const modal = button.closest(".modal")
-        closeModal(modal)
-    })
-})
+// closeModalButtons.addEventListener("click", event => {
+//     if(event.target.id === "closeButton")
+//         const modal = document.querySelector(".modal")
+//         closeModal(modal)
+//     })
 
-const openModal = (modal) => {
-    if (modal == null) return
-    modal.classList.add("active")
-    overlay.classList.add("active")
-}
 
-const closeModal = (modal) => {
-    if (modal == null) return
-    modal.classList.remove("active")
-    overlay.classList.remove("active")
-}
+// const openModal = (modal) => {
+//     if (modal == null) return
+//     modal.classList.add("active")
+//     overlay.classList.add("active")
+// }
+
+// const closeModal = (modal) => {
+//     if (modal == null) return
+//     modal.classList.remove("active")
+//     overlay.classList.remove("active")
+// }
+
 
 const startHolidayRoad = () => {
     showStateList()

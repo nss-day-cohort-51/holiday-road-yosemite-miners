@@ -25,7 +25,7 @@ a:hover {
 }
 
 /* For Modals Only */
-*, *::after, *::before{
+/* *, *::after, *::before{
     box-sizing: border-box;
 }
 
@@ -89,4 +89,4 @@ a:hover {
 #overlay.active {
     opacity: 1;
     pointer-events: all; 
-} 
+}  */
