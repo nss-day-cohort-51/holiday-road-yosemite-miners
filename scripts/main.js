@@ -1,12 +1,13 @@
 import { getStates } from "./parks/ParkDataManager.js"
 import { getBizarres, getAttraction } from "./attractions/AttractionDataManager.js";
-import { getEateries } from "./eateries/EateryDataManager.js";
+import { getEateries, getEatery } from "./eateries/EateryDataManager.js";
 import { park } from "./parks/park.js";
 import { getParks } from "./parks/ParkDataManager.js";
 import { getPark } from "./parks/ParkDataManager.js";
 import { Attraction } from "./attractions/Attraction.js";
 import { getWeather } from "./weather/WeatherDataManager.js";
 import { WeatherList } from "./weather/WeatherList.js";
+import { eatery } from "./eateries/eatery.js";
 
 
 
@@ -50,8 +51,7 @@ const showBizarreList = () => {
     getBizarres().then((allBizarres => BizarreList(allBizarres)))
 }
 
-
-//Bizarre event listener to populate trip preview
+//Bizarre event listener ti populate trip preview
 
 elementTarget.addEventListener("change", event => {
     if (event.target.id === "bizarreDrop") {
@@ -67,11 +67,10 @@ elementTarget.addEventListener("change", event => {
 
 
 
-
 //Eatery Drop Down
 const EateryList = (allEateries) => {
     const eateryFinder = document.querySelector(".eateryDrop")
-    let postHTML = `<select><option value="0">Choose Eatery</option>`;
+    let postHTML = `<select id="eateryDrop"><option value="0">Choose Eatery</option>`;
     for (const eateryObject of allEateries) {
         postHTML += `<option value="${eateryObject.id}">${eateryObject.businessName}</option>`
     }
@@ -84,6 +83,17 @@ const showEateryList = () => {
 }
 
 
+elementTarget.addEventListener("change", event => {
+    if (event.target.id === "eateryDrop") {
+        const eateryId = parseInt(event.target.value)
+        getEatery(eateryId)
+            .then(response => {
+                const attractionElement = document.querySelector(".eatery-name__block")
+                attractionElement.innerHTML = eatery(response)
+            })
+    }
+
+})
 //Parks drop down
 
 const ParkList = (allParks) => {
@@ -109,6 +119,9 @@ elementTarget.addEventListener("change", event => {
     }
 
 })
+
+
+
 
 // Weather is triggered by the park selection event listener
 // Show 5-day weather list
@@ -150,6 +163,7 @@ openModalButtons.addEventListener("click", event => {
 //     modal.classList.remove("active")
 //     overlay.classList.remove("active")
 // }
+
 
 
 const startHolidayRoad = () => {
