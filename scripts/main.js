@@ -132,13 +132,6 @@ const showWeatherList = (postalCode) => {
     });
 };
 
-const showTripList = () => {
-    const tripElement = document.querySelector(".sidebar")
-    getTrips()
-    .then((allTrips) => {
-        tripElement.innerHTML = TripList(allTrips)
-    })
-}
 
 //Save Button
 elementTarget.addEventListener("click", event => {
@@ -162,7 +155,15 @@ elementTarget.addEventListener("click", event => {
     }
 })
 
-
+const showTripList = () => {
+    const tripElement = document.querySelector(".sidebar")
+    getPark()
+    .then(getEatery())
+    .then(getTrips())
+    .then((allTrips) => {
+        tripElement.innerHTML = TripList(allTrips)
+    })
+}
 
 //Modal For Details Button
 const openModalButtons = document.querySelector("main")
