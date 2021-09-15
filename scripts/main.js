@@ -8,7 +8,8 @@ import { Attraction } from "./attractions/Attraction.js";
 import { getWeather } from "./weather/WeatherDataManager.js";
 import { WeatherList } from "./weather/WeatherList.js";
 import { eatery } from "./eateries/eatery.js";
-
+import { createTrip, getTrips } from "./Trips/TripDataManager.js";
+import { TripList } from "./Trips/TripList.js";
 
 
 //State Drop Down
@@ -130,6 +131,38 @@ const showWeatherList = (postalCode) => {
         postElement.innerHTML = WeatherList(allWeatherItems.list);
     });
 };
+
+const showTripList = () => {
+    const tripElement = document.querySelector(".sidebar")
+    getTrips()
+    .then((allTrips) => {
+        tripElement.innerHTML = TripList(allTrips)
+    })
+}
+
+//Save Button
+elementTarget.addEventListener("click", event => {
+    event.preventDefault();
+    if (event.target.id === "save-trip") {
+        const park = document.querySelector("#parkDrop").value
+        const bizarre = document.querySelector("#bizarreDrop").value
+        const eatery = document.querySelector("#eateryDrop").value
+        console.log(park, "park")
+        const postObject= {
+            parkId: park,
+            bizarreId: parseInt(bizarre),
+            eateryId: parseInt(eatery)
+        }
+
+        createTrip(postObject)
+        .then(database => {
+            showTripList()
+        })
+        
+    }
+})
+
+
 
 //Modal For Details Button
 const openModalButtons = document.querySelector("main")
