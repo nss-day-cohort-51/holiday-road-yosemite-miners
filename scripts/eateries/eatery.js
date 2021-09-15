@@ -1,5 +1,5 @@
 export const eatery = (eatObj) => {
-    return ` <h4>Eatery: ${eatObj.businessName} </h4>
+    return ` <h4 id="eateryName">Eatery: ${eatObj.businessName} </h4>
     <button id="openEateryButton">Details</button>
     <dialog class="eateryModal" id="eateryModal">
         <div class="modal-header">
