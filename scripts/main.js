@@ -1,8 +1,6 @@
 import { getStates } from "./parks/ParkDataManager.js"
 import { getBizarres, getAttraction } from "./attractions/AttractionDataManager.js";
 import { getEateries, getEatery } from "./eateries/EateryDataManager.js";
-import { getBizarres, getAttraction } from "./attractions/AttractionDataManager.js";
-import { getEateries } from "./eateries/EateryDataManager.js";
 import { park } from "./parks/park.js";
 import { getParks } from "./parks/ParkDataManager.js";
 import { getPark } from "./parks/ParkDataManager.js";
