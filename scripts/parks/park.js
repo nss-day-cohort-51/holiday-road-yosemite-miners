@@ -3,11 +3,12 @@
 export const park = (parkObject) => {
     return `   
                     <h4 class="park_name">${parkObject.fullName}</h4>
-                    <button  id="openButton">Details</button>
-                    <dialog class="modal" id="modal">
+                    <button  id="openParkButton">Details</button>
+                    <dialog class="parkModal" id="parkModal">
                         <div class="modal-header">
                             <div class="title">More Details</div>
-                                <button id="closeButton" class="close-button">&times;</button>
+                            <h2 class="park_name">${parkObject.fullName}</h2>
+                                <button id="closeParkButton" class="close-button">&times;</button>
                                 <div class="modal-body">
                                     <p>${parkObject.description}</p>
                                 </div>
