@@ -121,8 +121,6 @@ elementTarget.addEventListener("change", event => {
 })
 
 
-
-
 // Weather is triggered by the park selection event listener
 // Show 5-day weather list
 const showWeatherList = (postalCode) => {
@@ -137,12 +135,24 @@ const showWeatherList = (postalCode) => {
 const openModalButtons = document.querySelector("main")
 
 openModalButtons.addEventListener("click", event => {
-    if (event.target.id === "openButton") {
-        const modal = document.querySelector(".modal")
+    if (event.target.id === "openAttractionButton") {
+        const modal = document.querySelector(".attractionModal")
         modal.showModal()
-    } else if (event.target.id === "closeButton"){
-        const closeModal = document.getElementById("modal")
-        closeModal.close()
+    } else if (event.target.id === "closeAttractionButton"){
+        const closeAttractionModal = document.getElementById("attractionModal")
+        closeAttractionModal.close()
+    } else if (event.target.id === "openEateryButton"){
+        const openEateryModal = document.querySelector(".eateryModal")
+        openEateryModal.showModal()
+    } else if (event.target.id === "closeEateryButton"){
+        const closeEateryModal = document.getElementById("eateryModal")
+        closeEateryModal.close()
+    }else if (event.target.id === "openParkButton"){
+        const openParkModal = document.querySelector(".parkModal")
+        openParkModal.showModal()
+    }else if (event.target.id === "closeParkButton"){
+        const closeParkModal = document.getElementById("parkModal")
+        closeParkModal.close()
     }
 })
 
