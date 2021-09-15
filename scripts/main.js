@@ -14,7 +14,7 @@ import { eatery } from "./eateries/eatery.js";
 //State Drop Down
 const StateList = (allStates) => {
     const stateFinder = document.querySelector(".stateDrop")
-    let postHTML = `<select id="stateDrop"><option value="0">Choose State</option>`;
+    let postHTML = `<select id="stateDrop"><option value="0" disabled selected hidden>Choose State</option>`;
     for (const StateObject of allStates) {
         postHTML += `<option value="${StateObject.code}">${StateObject.name}</option>`
     }
@@ -39,7 +39,7 @@ elementTarget.addEventListener("change", event => {
 //Bizarre Drop down
 const BizarreList = (allBizarres) => {
     const bizarreFinder = document.querySelector(".bizarreDrop")
-    let postHTML = `<select id="bizarreDrop"><option value="0">Choose Attraction</option>`;
+    let postHTML = `<select id="bizarreDrop"><option value="0"disabled selected hidden>Choose Attraction</option>`;
     for (const bizarreObject of allBizarres) {
         postHTML += `<option value="${bizarreObject.id}">${bizarreObject.name}</option>`
     }
@@ -70,7 +70,7 @@ elementTarget.addEventListener("change", event => {
 //Eatery Drop Down
 const EateryList = (allEateries) => {
     const eateryFinder = document.querySelector(".eateryDrop")
-    let postHTML = `<select id="eateryDrop"><option value="0">Choose Eatery</option>`;
+    let postHTML = `<select id="eateryDrop"><option value="0" disabled selected hidden>Choose Eatery</option>`;
     for (const eateryObject of allEateries) {
         postHTML += `<option value="${eateryObject.id}">${eateryObject.businessName}</option>`
     }
@@ -98,7 +98,7 @@ elementTarget.addEventListener("change", event => {
 
 const ParkList = (allParks) => {
     const parkFinder = document.querySelector(".parkDrop")
-    let postHTML = `<select id="parkDrop"><option value="0">Choose Park</option>`
+    let postHTML = `<select id="parkDrop"><option value="0" disabled selected hidden>Choose Park</option>`
     for (const parkObj of allParks) {
         postHTML += `<option value="${parkObj.parkCode}">${parkObj.fullName}</option>`
     }
@@ -135,36 +135,16 @@ const showWeatherList = (postalCode) => {
 
 //Modal For Details Button
 const openModalButtons = document.querySelector("main")
-// const closeModalButtons = document.querySelector("main")
-// const overlay = document.getElementById("overlay")
 
 openModalButtons.addEventListener("click", event => {
-        if(event.target.id === "openButton"){
+    if (event.target.id === "openButton") {
         const modal = document.querySelector(".modal")
         modal.showModal()
-        }
-    })
-
-// closeModalButtons.addEventListener("click", event => {
-//     if(event.target.id === "closeButton")
-//         const modal = document.querySelector(".modal")
-//         closeModal(modal)
-//     })
-
-
-// const openModal = (modal) => {
-//     if (modal == null) return
-//     modal.classList.add("active")
-//     overlay.classList.add("active")
-// }
-
-// const closeModal = (modal) => {
-//     if (modal == null) return
-//     modal.classList.remove("active")
-//     overlay.classList.remove("active")
-// }
-
-
+    } else if (event.target.id === "closeButton"){
+        const closeModal = document.getElementById("modal")
+        closeModal.close()
+    }
+})
 
 const startHolidayRoad = () => {
     showStateList()

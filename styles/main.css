@@ -25,15 +25,17 @@ a:hover {
 }
 
 /* For Modals Only */
-/* *, *::after, *::before{
+
+*, *::after, *::before{
     box-sizing: border-box;
 }
 
 .modal {
-    position: fixed;
+    /* position: fixed;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    */ 
     transition: 200ms ease-in-out;
     border: 1px solid black;
     border-radius: 10px;
@@ -44,7 +46,7 @@ a:hover {
 }
 
 .modal.active {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%);
 }
 
 .modal-header {
@@ -89,4 +91,4 @@ a:hover {
 #overlay.active {
     opacity: 1;
     pointer-events: all; 
-}  */
+}  
