@@ -1,9 +1,7 @@
 export const Trip = (tripObject) =>{
-    return `
-        <section class="savedTrips">
-            <p>${tripObject.parkId}<p>
-            <p>${tripObject.bizarreId}<p>
-            <p>${tripObject.eateryId}<p>
-        </section>
-    `
+    return `<section id=${tripObject.id} class="savedTrips">
+            <p>${tripObject.parkId}</p>
+            <p>${tripObject.bizarreId}</p>
+            <p>${tripObject.eateryId}</p>
+        </section>`
 }
