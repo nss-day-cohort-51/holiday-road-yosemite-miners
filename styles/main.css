@@ -1,5 +1,9 @@
 /* User the variables for colors to make sure we use only these colors
 Syntax: color: var(--primary-highlight-color); */
+@import "attraction.css";
+@import "parks.css";
+
+
 html {
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -104,18 +108,26 @@ button#closeParkButton,
 #overlay.active {
     opacity: 1;
     pointer-events: all; 
+}  
+
+.preview-area {
+    background-color: rgba(255, 255, 255, 0.493);
+    width: 75%;
+}
+
+.weatherinfo {
+    background-color: white;
+    width: 75%;
 } 
 .eatery-name__block {
     background-color:white;
-    width: 400px;
-    border:solid 1px;
     
 } 
 #openEateryButton {
     background-color: #24687F;
+    border-color: #24687F;
+    border-radius: 5px ;
     color: white;
-    border-radius: 5px;
-    border: none;
-    padding: 1px;
-    height: 20px;
+    width: 80px;
+    height: 30px;
 }

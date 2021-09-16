@@ -5,7 +5,7 @@ import { park } from "./parks/park.js";
 import { getParks, getPark, getParkByZip  } from "./parks/ParkDataManager.js";
 import { Attraction } from "./attractions/Attraction.js";
 import { getWeather } from "./weather/WeatherDataManager.js";
-// import { WeatherList } from "./weather/WeatherList.js";
+import { WeatherList } from "./weather/WeatherList.js";
 import { eatery } from "./eateries/eatery.js";
 import { createTrip, getTrips, getOneTrip } from "./Trips/TripDataManager.js";
 import { TripList } from "./Trips/TripList.js";
@@ -112,6 +112,20 @@ elementTarget.addEventListener("change", (event) => {
 });
 
 //Event Listener for Weather once park has been selected WIP
+
+elementTarget.addEventListener("change", (event)  => {
+  if (event.target.id === "parkDrop"){
+    const zipId = event.target.value;
+    getParkByZip(zipId)
+    .then((response) => {
+      console.log(response,"response");
+      const zipInt = parseInt(response);
+      showWeatherList(zipInt);
+    })
+    
+  }
+})
+
 // elementTarget.addEventListener("change", (event)  => {
 //   if (event.target.id === "parkDrop"){
 //     const zipId = event.target.value;
@@ -127,6 +141,13 @@ elementTarget.addEventListener("change", (event) => {
 // Weather is triggered by the park selection event listener
 // Show 5-day weather list
 
+const showWeatherList = (postalCode) => {
+  //Get a reference to the location on the DOM where the list will display
+  const postElement = document.querySelector(".fiveday-forecast");
+  getWeather(postalCode).then((allWeatherItems) => {
+    postElement.innerHTML = WeatherList(allWeatherItems.list);
+  });
+};
 // const showWeatherList = (postalCode) => {
 //   //Get a reference to the location on the DOM where the list will display
 //   const postElement = document.querySelector(".fiveday-forecast");
@@ -200,6 +221,7 @@ const startHolidayRoad = () => {
   showStateList();
   showBizarreList();
   showEateryList();
+
   showTripList();
   // showWeatherList(37214);
 };
