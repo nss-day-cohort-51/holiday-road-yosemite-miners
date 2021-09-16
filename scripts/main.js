@@ -112,8 +112,7 @@ elementTarget.addEventListener("change", (event) => {
 });
 
 //Event Listener for Weather once park has been selected WIP
-// <<<<<<< HEAD
-// <<<<<<< HEAD
+
 elementTarget.addEventListener("change", (event)  => {
   if (event.target.id === "parkDrop"){
     const zipId = event.target.value;
