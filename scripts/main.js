@@ -112,16 +112,17 @@ elementTarget.addEventListener("change", (event) => {
 });
 
 //Event Listener for Weather once park has been selected WIP
-elementTarget.addEventListener("change", (event)  => {
-  if (event.target.id === "parkDrop"){
-    const zipId = event.target.value;
-    getParkByZip(zipId)
-    .then((response) => {
-      console.log(response,"response")
-    })
-    
-  }
-})
+// elementTarget.addEventListener("change", (event)  => {
+//   if (event.target.id === "parkDrop"){
+//     const zipId = event.target.value;
+//     getParkByZip(zipId).then((response) => {
+//       const weatherElement = document.querySelector(".fiveday-forecast")
+//       weatherElement.innerHTML = weatherForecastItem(getWeather(response))
+      
+//     })
+//   }
+// })
+
 
 // Weather is triggered by the park selection event listener
 // Show 5-day weather list
@@ -130,7 +131,7 @@ elementTarget.addEventListener("change", (event)  => {
 //   //Get a reference to the location on the DOM where the list will display
 //   const postElement = document.querySelector(".fiveday-forecast");
 //   getWeather(postalCode).then((allWeatherItems) => {
-//     postElement.innerHTML = WeatherList(allWeatherItems.list);
+//     postElement.innerHTML = weatherForecastItem(allWeatherItems.list);
 //   });
 // };
 
@@ -161,14 +162,14 @@ const showTripList = () => {
   const tripElement = document.querySelector(".sidebar");
   getTrips().then((allTrips) => {
     tripElement.innerHTML = TripList(allTrips);
-    showTripEntry();
+    // showTripEntry();
   });
 };
 
-const showTripEntry = () => {
-    const tripTripElement = document.querySelector(".sidebar");
-    tripTripElement.innerHTML = Trip(1);
-}
+// const showTripEntry = () => {
+//     const tripTripElement = document.querySelector(".sidebar");
+//     tripTripElement.innerHTML = Trip(1);
+// }
 
 //Modal For Details Button
 const openModalButtons = document.querySelector("main");
@@ -199,6 +200,7 @@ const startHolidayRoad = () => {
   showStateList();
   showBizarreList();
   showEateryList();
+  showTripList();
   // showWeatherList(37214);
 };
 
