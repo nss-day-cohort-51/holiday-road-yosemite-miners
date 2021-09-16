@@ -91,4 +91,18 @@ a:hover {
 #overlay.active {
     opacity: 1;
     pointer-events: all; 
-}  
+} 
+.eatery-name__block {
+    background-color:white;
+    width: 400px;
+    border:solid 1px;
+    
+} 
+#openEateryButton {
+    background-color: #24687F;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 1px;
+    height: 20px;
+}
