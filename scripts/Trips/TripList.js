@@ -5,4 +5,5 @@ export const TripList = (allTrips) => {
   for (const tripObject of allTrips) {
     postHTML += Trip(tripObject);
   }
+  return postHTML;
 };
