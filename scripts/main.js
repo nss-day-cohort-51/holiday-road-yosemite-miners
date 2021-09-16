@@ -112,7 +112,8 @@ elementTarget.addEventListener("change", (event) => {
 });
 
 //Event Listener for Weather once park has been selected WIP
-<<<<<<< HEAD
+// <<<<<<< HEAD
+// <<<<<<< HEAD
 elementTarget.addEventListener("change", (event)  => {
   if (event.target.id === "parkDrop"){
     const zipId = event.target.value;
@@ -125,7 +126,7 @@ elementTarget.addEventListener("change", (event)  => {
     
   }
 })
-=======
+
 // elementTarget.addEventListener("change", (event)  => {
 //   if (event.target.id === "parkDrop"){
 //     const zipId = event.target.value;
@@ -137,12 +138,10 @@ elementTarget.addEventListener("change", (event)  => {
 //   }
 // })
 
->>>>>>> origin/mf-attCSS
 
 // Weather is triggered by the park selection event listener
 // Show 5-day weather list
 
-<<<<<<< HEAD
 const showWeatherList = (postalCode) => {
   //Get a reference to the location on the DOM where the list will display
   const postElement = document.querySelector(".fiveday-forecast");
@@ -150,7 +149,6 @@ const showWeatherList = (postalCode) => {
     postElement.innerHTML = WeatherList(allWeatherItems.list);
   });
 };
-=======
 // const showWeatherList = (postalCode) => {
 //   //Get a reference to the location on the DOM where the list will display
 //   const postElement = document.querySelector(".fiveday-forecast");
@@ -158,7 +156,6 @@ const showWeatherList = (postalCode) => {
 //     postElement.innerHTML = weatherForecastItem(allWeatherItems.list);
 //   });
 // };
->>>>>>> origin/mf-attCSS
 
 //Save Button
 let postObject = {};
@@ -225,11 +222,9 @@ const startHolidayRoad = () => {
   showStateList();
   showBizarreList();
   showEateryList();
-<<<<<<< HEAD
-=======
+
   showTripList();
   // showWeatherList(37214);
->>>>>>> origin/mf-attCSS
 };
 
 startHolidayRoad();
