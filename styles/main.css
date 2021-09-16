@@ -1,5 +1,9 @@
 /* User the variables for colors to make sure we use only these colors
 Syntax: color: var(--primary-highlight-color); */
+@import "attraction.css";
+@import "parks.css";
+
+
 html {
     font-family: 'Source Sans Pro', sans-serif;
 }
