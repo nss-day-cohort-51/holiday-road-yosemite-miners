@@ -1,19 +1,16 @@
 import { getStates } from "./parks/ParkDataManager.js";
-import {
-  getBizarres,
-  getAttraction,
-} from "./attractions/AttractionDataManager.js";
+import {  getBizarres, getAttraction,} from "./attractions/AttractionDataManager.js";
 import { getEateries, getEatery } from "./eateries/EateryDataManager.js";
 import { park } from "./parks/park.js";
-import { getParks } from "./parks/ParkDataManager.js";
-import { getPark } from "./parks/ParkDataManager.js";
+import { getParks, getPark, getParkByZip  } from "./parks/ParkDataManager.js";
 import { Attraction } from "./attractions/Attraction.js";
 import { getWeather } from "./weather/WeatherDataManager.js";
-import { WeatherList } from "./weather/WeatherList.js";
+// import { WeatherList } from "./weather/WeatherList.js";
 import { eatery } from "./eateries/eatery.js";
 import { createTrip, getTrips, getOneTrip } from "./Trips/TripDataManager.js";
 import { TripList } from "./Trips/TripList.js";
 import { Trip } from "./Trips/Trip.js";
+import { weatherForecastItem } from "./weather/Weather.js";
 
 //State Drop Down
 const StateList = (allStates) => {
@@ -110,19 +107,32 @@ elementTarget.addEventListener("change", (event) => {
     getPark(parkId).then((response) => {
       const parkElement = document.querySelector(".park-name__block");
       parkElement.innerHTML = park(response.data[0]);
-    });
-  }
+    })
+  } 
 });
+
+//Event Listener for Weather once park has been selected WIP
+elementTarget.addEventListener("change", (event)  => {
+  if (event.target.id === "parkDrop"){
+    const zipId = event.target.value;
+    getParkByZip(zipId)
+    .then((response) => {
+      console.log(response,"response")
+    })
+    
+  }
+})
 
 // Weather is triggered by the park selection event listener
 // Show 5-day weather list
-const showWeatherList = (postalCode) => {
-  //Get a reference to the location on the DOM where the list will display
-  const postElement = document.querySelector(".fiveday-forecast");
-  getWeather(postalCode).then((allWeatherItems) => {
-    postElement.innerHTML = WeatherList(allWeatherItems.list);
-  });
-};
+
+// const showWeatherList = (postalCode) => {
+//   //Get a reference to the location on the DOM where the list will display
+//   const postElement = document.querySelector(".fiveday-forecast");
+//   getWeather(postalCode).then((allWeatherItems) => {
+//     postElement.innerHTML = WeatherList(allWeatherItems.list);
+//   });
+// };
 
 //Save Button
 let postObject = {};
@@ -189,7 +199,7 @@ const startHolidayRoad = () => {
   showStateList();
   showBizarreList();
   showEateryList();
-  showWeatherList(37214);
+  // showWeatherList(37214);
 };
 
 startHolidayRoad();
