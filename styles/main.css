@@ -31,6 +31,7 @@ a:hover {
     justify-content: space-evenly;
 }
 
+
 /* For Modals Only */
 
 *, *::after, *::before{
@@ -48,8 +49,8 @@ a:hover {
     border-radius: 10px;
     z-index: 10;
     background-color: white;
-    width: 500px;
-    max-width: 80%;
+    width: 80vw;
+    max-width: 80vw;
     
 }
 
@@ -107,6 +108,18 @@ button#closeParkButton,
 #overlay.active {
     opacity: 1;
     pointer-events: all; 
+<<<<<<< HEAD
+}  
+
+.preview-area {
+    background-color: rgba(255, 255, 255, 0.493);
+    width: 75%;
+}
+
+.weatherinfo {
+    background-color: white;
+    width: 75%;
+=======
 } 
 .eatery-name__block {
     background-color:white;
@@ -121,4 +134,5 @@ button#closeParkButton,
     border: none;
     padding: 1px;
     height: 20px;
+>>>>>>> main
 }
