@@ -6,7 +6,7 @@ export const getWeather = (zip) => {
   )
     .then((response) => response.json())
     .then((parsedResponse) => {
-      return parsedResponse.list[0];
+      return parsedResponse;
     });
 };
 

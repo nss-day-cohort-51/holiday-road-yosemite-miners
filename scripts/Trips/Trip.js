@@ -1,14 +1,9 @@
-import { getEatery } from "../eateries/EateryDataManager.js"
-import { getPark } from "../parks/ParkDataManager.js"
-import { getAttraction } from "../attractions/AttractionDataManager.js"
 
-
-export const Trip = (tripObject) =>{
-    const tripEatery = getEatery(tripObject.eateryId)
-    console.log(tripEatery)
-    return `<section id=${tripObject.id} class="savedTrips">
-            <p>${tripObject.parkId}</p>
-            <p>${tripObject.bizarreId}</p>
-            <p>${tripEatery}</p>
-        </section>`
+export const Trip = (park, eatery, attraction) =>{ 
+                    return `<section class="savedTrips">
+                            <p>${park.data[0].fullName}</p>
+                            <p>${attraction.name}</p>
+                            <p>${eatery.businessName}</p>
+                    </section>`
+            
 }
