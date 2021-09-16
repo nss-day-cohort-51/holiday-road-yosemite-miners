@@ -6,7 +6,8 @@ import { getAttraction } from "../attractions/AttractionDataManager.js"
 export const Trip = (tripObject) =>{
     const tripEatery = getEatery(tripObject.eateryId)
     console.log(tripEatery)
-    return `<section id=${tripObject.id} class="savedTrips">
+    return `<hr><section id="trip--${tripObject.id}" class="savedTrips">
+    <h4>Trip #${tripObject.id}</h4>
             <p>${tripObject.parkId}</p>
             <p>${tripObject.bizarreId}</p>
             <p>${tripEatery}</p>

@@ -4,12 +4,20 @@ section.fiveday-forecast {
     flex-wrap: wrap;
 }
 
-article#weather-info__item {
-    flex: 0 0 140px;
-    background: #ffffff;
-    margin: .25rem;
-    padding-block: .5rem;
-    padding-inline: 1rem;
+#weather-info__item {
     border-radius: 5px;
     border: 2px solid #24687F;
+    margin: .25rem;
+    padding-block: .25rem;
+    padding-inline: .5rem;
+}
+
+.fiveday-forecast {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: stretch;
+    padding-block: 1rem;
 }

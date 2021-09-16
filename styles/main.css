@@ -2,6 +2,7 @@
 Syntax: color: var(--primary-highlight-color); */
 @import "attraction.css";
 @import "parks.css";
+@import "weather.css";
 
 
 html {
@@ -20,6 +21,13 @@ html {
 
 body {
     background-color: var(--primary-background-color);
+    color: #0B2027;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    border-radius: 50px;
 }
 
 a:hover {
@@ -130,4 +138,88 @@ button#closeParkButton,
     color: white;
     width: 80px;
     height: 30px;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.main {
+    flex: 1 1 700px;
+    padding: 1rem;
+}
+
+main > * {
+    padding: 1rem;
+}
+
+.sidebar {
+    flex: 1 0 240px;
+    border-left: 4px solid #ffffff;
+    padding: 1rem;
+}
+
+.savedTrips {
+    padding: .5rem;
+    margin-block: .5rem;
+}
+
+.no-list-bullets {
+    list-style-type: none;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: stretch;
+    padding-inline: 10rem;
+    font-size: larger;
+    border-top: 4px solid #ffffff;
+}
+
+button:hover {
+    background-color: #F19953!important;
+}
+
+button {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.header {
+    border-bottom: 4px solid #ffffff;
+    padding-block: .5rem;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 2rem;
+}
+
+.page_title {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+section.team-members__block {
+    padding-inline: 1rem;
+    border-left: 4px solid #ffffff;
+}
+
+select {
+    border-radius: 5px;
 }
