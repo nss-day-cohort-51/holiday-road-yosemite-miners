@@ -112,6 +112,7 @@ elementTarget.addEventListener("change", (event) => {
 });
 
 //Event Listener for Weather once park has been selected WIP
+<<<<<<< HEAD
 elementTarget.addEventListener("change", (event)  => {
   if (event.target.id === "parkDrop"){
     const zipId = event.target.value;
@@ -124,10 +125,24 @@ elementTarget.addEventListener("change", (event)  => {
     
   }
 })
+=======
+// elementTarget.addEventListener("change", (event)  => {
+//   if (event.target.id === "parkDrop"){
+//     const zipId = event.target.value;
+//     getParkByZip(zipId).then((response) => {
+//       const weatherElement = document.querySelector(".fiveday-forecast")
+//       weatherElement.innerHTML = weatherForecastItem(getWeather(response))
+      
+//     })
+//   }
+// })
+
+>>>>>>> origin/mf-attCSS
 
 // Weather is triggered by the park selection event listener
 // Show 5-day weather list
 
+<<<<<<< HEAD
 const showWeatherList = (postalCode) => {
   //Get a reference to the location on the DOM where the list will display
   const postElement = document.querySelector(".fiveday-forecast");
@@ -135,6 +150,15 @@ const showWeatherList = (postalCode) => {
     postElement.innerHTML = WeatherList(allWeatherItems.list);
   });
 };
+=======
+// const showWeatherList = (postalCode) => {
+//   //Get a reference to the location on the DOM where the list will display
+//   const postElement = document.querySelector(".fiveday-forecast");
+//   getWeather(postalCode).then((allWeatherItems) => {
+//     postElement.innerHTML = weatherForecastItem(allWeatherItems.list);
+//   });
+// };
+>>>>>>> origin/mf-attCSS
 
 //Save Button
 let postObject = {};
@@ -163,14 +187,14 @@ const showTripList = () => {
   const tripElement = document.querySelector(".sidebar");
   getTrips().then((allTrips) => {
     tripElement.innerHTML = TripList(allTrips);
-    showTripEntry();
+    // showTripEntry();
   });
 };
 
-const showTripEntry = () => {
-    const tripTripElement = document.querySelector(".sidebar");
-    tripTripElement.innerHTML = Trip(1);
-}
+// const showTripEntry = () => {
+//     const tripTripElement = document.querySelector(".sidebar");
+//     tripTripElement.innerHTML = Trip(1);
+// }
 
 //Modal For Details Button
 const openModalButtons = document.querySelector("main");
@@ -201,6 +225,11 @@ const startHolidayRoad = () => {
   showStateList();
   showBizarreList();
   showEateryList();
+<<<<<<< HEAD
+=======
+  showTripList();
+  // showWeatherList(37214);
+>>>>>>> origin/mf-attCSS
 };
 
 startHolidayRoad();
