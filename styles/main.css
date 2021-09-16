@@ -1,5 +1,8 @@
 /* User the variables for colors to make sure we use only these colors
 Syntax: color: var(--primary-highlight-color); */
+html {
+    font-family: 'Source Sans Pro', sans-serif;
+}
 
 :root {
     --primary-main-color: #0B2027;
@@ -43,6 +46,15 @@ a:hover {
     background-color: white;
     width: 500px;
     max-width: 80%;
+    
+}
+
+button#closeParkButton, 
+#closeAttractionButton,
+#closeEateryButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 .modal.active {
@@ -51,10 +63,10 @@ a:hover {
 
 .modal-header {
     padding: 10px 15px;
-    display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid black;
+    position: relative;
 }
 
 .modal-header .title {
