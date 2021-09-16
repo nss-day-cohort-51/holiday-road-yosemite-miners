@@ -1,0 +1,13 @@
+/* styles the whole block for park specifically */
+.park-name__block {
+    background-color: white;
+}
+/* styles the details button for park */
+#openParkButton {
+    background-color: #24687F;
+    border-color: #24687F;
+    border-radius: 5px ;
+    color: white;
+    width: 80px;
+    height: 30px;
+}
