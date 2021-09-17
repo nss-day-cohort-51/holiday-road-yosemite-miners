@@ -2,14 +2,17 @@
 
 export const park = (parkObject) => {
     return `   
-                    <h4 class="park_name">${parkObject.fullName}</h4>
+                    <h4 class="park_name">Park: ${parkObject.fullName}</h4>
+                    
                     <button  id="openParkButton">Details</button>
                     <dialog class="parkModal" id="parkModal">
+                    <img class="parkImg" src="${parkObject.images[0].url}">
+                    <button id="closeParkButton" class="close-button">&times;</button>
                         <div class="modal-header">
                             <div class="title">More Details</div>
                             <h2 class="park_name">${parkObject.fullName}</h2>
-                                <button id="closeParkButton" class="close-button">&times;</button>
                                 <div class="modal-body">
+                                    <hr>
                                     <p>${parkObject.description}</p>
                                 </div>
                     <address class="address">

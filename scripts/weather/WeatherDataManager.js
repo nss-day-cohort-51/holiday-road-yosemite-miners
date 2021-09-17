@@ -6,9 +6,7 @@ export const getWeather = (zip) => {
   )
     .then((response) => response.json())
     .then((parsedResponse) => {
-      return parsedResponse.list[0];
+      return parsedResponse;
     });
 };
 
-//api.openweathermap.org/data/2.5/weather?zip={37167},{TN}&appid={API key}
-//https://api.openweathermap.org/data/2.5/forecast?q=${city},us&appid=${settings.weatherKey}&units=imperial&cnt=15
