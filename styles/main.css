@@ -1,10 +1,9 @@
 /* User the variables for colors to make sure we use only these colors
 Syntax: color: var(--primary-highlight-color); */
+
 @import "attraction.css";
 @import "parks.css";
 @import "weather.css";
-
-
 html {
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -22,6 +21,8 @@ html {
 body {
     background-color: var(--primary-background-color);
     color: #0B2027;
+    padding: 0;
+    margin: 0;
 }
 
 .logo {
@@ -39,32 +40,31 @@ a:hover {
     justify-content: space-evenly;
 }
 
+.trip-list__block > * {
+    margin: .5rem;
+    padding: .5rem;
+}
 
 /* For Modals Only */
 
-*, *::after, *::before{
+*, *::after, *::before {
     box-sizing: border-box;
 }
 
-.modal {
-    /* position: fixed;
+.parkModal, .attractionModal, .eateryModal {
+    position: fixed;
     top: 50%;
-    left: 50%; 
+    left: 50%;
     transform: translate(-50%, -50%);
-    */ 
-    transition: 200ms ease-in-out;
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 20px;
     z-index: 10;
     background-color: white;
     width: 80vw;
     max-width: 80vw;
-    
 }
 
-button#closeParkButton, 
-#closeAttractionButton,
-#closeEateryButton {
+button#closeParkButton, #closeAttractionButton, #closeEateryButton {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -78,17 +78,15 @@ button#closeParkButton,
     padding: 10px 15px;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid black;
     position: relative;
 }
 
 .modal-header .title {
     font-size: 1.25rem;
     font-weight: bold;
-
 }
 
-.modal-header .close-button {
+.close-button {
     cursor: pointer;
     border: none;
     outline: none;
@@ -98,43 +96,33 @@ button#closeParkButton,
 }
 
 .modal-body {
-    padding: 10px 15px; 
+    padding: 10px 15px;
 }
-
-#overlay {
-    position: fixed;
-    opacity: 0;
-    transition: 200ms ease-in-out;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,.5);
-    pointer-events: none;
-}
-
-#overlay.active {
-    opacity: 1;
-    pointer-events: all; 
-}  
 
 .preview-area {
     background-color: rgba(255, 255, 255, 0.493);
-    width: 75%;
 }
 
 .weatherinfo {
     background-color: white;
-    width: 75%;
-} 
+}
+
+h5.day-name {
+    text-transform: uppercase;
+}
+
 .eatery-name__block {
-    background-color:white;
-    
-} 
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
 #openEateryButton {
     background-color: #24687F;
     border-color: #24687F;
-    border-radius: 5px ;
+    border-radius: 5px;
     color: white;
     width: 80px;
     height: 30px;
@@ -153,7 +141,7 @@ button#closeParkButton,
     padding: 1rem;
 }
 
-main > * {
+main>* {
     padding: 1rem;
 }
 
@@ -176,12 +164,12 @@ main > * {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-content: center;
     justify-content: space-between;
     align-items: stretch;
     padding-inline: 10rem;
     font-size: larger;
     border-top: 4px solid #ffffff;
+    height: 300px;
 }
 
 button:hover {
@@ -191,6 +179,12 @@ button:hover {
 button {
     text-transform: uppercase;
     font-weight: bold;
+    border-radius: 5px;
+}
+
+#save-trip {
+    border-radius: 5px;
+    padding: 1rem;
 }
 
 .header {
@@ -204,6 +198,11 @@ button {
     justify-content: space-between;
     align-items: center;
     padding-inline: 2rem;
+}
+
+p.weatherDescription {
+    font-size: small;
+    text-transform: capitalize;
 }
 
 .page_title {
@@ -222,4 +221,31 @@ section.team-members__block {
 
 select {
     border-radius: 5px;
+}
+
+ol {
+    border-radius: 5px;
+    border: 2px solid #24687F;
+    padding-top: 10px;
+    padding-left: 70px;
+    background-color: white;
+    width: 400px;
+    list-style: none;
+}
+
+.bizarreImg, .parkImg, .eateryImg {
+    width: 400px;
+    padding-bottom: 10px
+}
+
+ul {
+    list-style: none;
+}
+
+.social-link {
+    font-size: larger;
+}
+
+a:visited {
+    color: currentColor; 
 }

@@ -18,7 +18,3 @@ export const createTrip = postObj => {
     })
   }
   
-//   Get a single trip item
-  export const getOneTrip = (tripId) => {
-	  return fetch(`http://localhost:8088/trips/${tripId}`).then(response => response.json())
-  } 

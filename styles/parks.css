@@ -1,7 +1,11 @@
 /* styles the whole block for park specifically */
 .park-name__block {
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
 }
+
 /* styles the details button for park */
 #openParkButton {
     background-color: #24687F;

@@ -21,15 +21,6 @@ export const getPark = (input) => {
         return parsedResponse;
     })
 }
-
-// export const getParkByZip = (input) => {
-//     const key = settings.npsKey
-//     return fetch(`https://developer.nps.gov/api/v1/parks?parkCode=${input}&api_key=${key}`)
-//     .then(response => response.json())
-//     .then(parsedResponse => {
-//         return parsedResponse.data[0].addresses[0].postalCode;
-//     })
-// }
  
 export const getStates = () => {
     return fetch(`http://localhost:8088/states`)
